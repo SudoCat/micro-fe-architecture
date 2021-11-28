@@ -1,0 +1,28 @@
+{
+  "root": "apps/search-and-results-e2e",
+  "sourceRoot": "apps/search-and-results-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/search-and-results-e2e/cypress.json",
+        "devServerTarget": "search-and-results:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "search-and-results:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/search-and-results-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["search-and-results"]
+}
