@@ -1,0 +1,11 @@
+import React from 'react'
+
+import { Wrapper } from './<%= fileName %>.styles'
+
+const <%= className %> = ({children}) => {
+  return (
+    <Wrapper>
+      {children}
+    </Wrapper>
+  )
+}
