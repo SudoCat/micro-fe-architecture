@@ -1,0 +1,69 @@
+{
+  "root": "apps/orders",
+  "sourceRoot": "apps/orders/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/orders",
+        "index": "apps/orders/src/index.html",
+        "baseHref": "/",
+        "main": "apps/orders/src/main.tsx",
+        "polyfills": "apps/orders/src/polyfills.ts",
+        "tsConfig": "apps/orders/tsconfig.app.json",
+        "assets": ["apps/orders/src/favicon.ico", "apps/orders/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "apps/orders/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/orders/src/environments/environment.ts",
+              "with": "apps/orders/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "orders:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "orders:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/orders/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/orders"],
+      "options": {
+        "jestConfig": "apps/orders/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
