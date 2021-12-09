@@ -1,6 +1,6 @@
 {
-  "root": "apps/search-and-results",
-  "sourceRoot": "apps/search-and-results/src",
+  "root": "apps/shared",
+  "sourceRoot": "apps/shared/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,26 +8,23 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/search-and-results",
-        "index": "apps/search-and-results/src/index.html",
+        "outputPath": "dist/apps/shared",
+        "index": "apps/shared/src/index.html",
         "baseHref": "/",
-        "main": "apps/search-and-results/src/main.tsx",
-        "polyfills": "apps/search-and-results/src/polyfills.ts",
-        "tsConfig": "apps/search-and-results/tsconfig.app.json",
-        "assets": [
-          "apps/search-and-results/src/favicon.ico",
-          "apps/search-and-results/src/assets"
-        ],
+        "main": "apps/shared/src/main.tsx",
+        "polyfills": "apps/shared/src/polyfills.ts",
+        "tsConfig": "apps/shared/tsconfig.app.json",
+        "assets": ["apps/shared/src/favicon.ico", "apps/shared/src/assets"],
         "styles": [],
         "scripts": [],
-        "webpackConfig": "apps/search-and-results/webpack.config.js"
+        "webpackConfig": "apps/shared/webpack.config.js"
       },
       "configurations": {
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/search-and-results/src/environments/environment.ts",
-              "with": "apps/search-and-results/src/environments/environment.prod.ts"
+              "replace": "apps/shared/src/environments/environment.ts",
+              "with": "apps/shared/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -42,12 +39,12 @@
     "serve": {
       "executor": "@nrwl/web:dev-server",
       "options": {
-        "buildTarget": "search-and-results:build",
+        "buildTarget": "shared:build",
         "hmr": true
       },
       "configurations": {
         "production": {
-          "buildTarget": "search-and-results:build:production",
+          "buildTarget": "shared:build:production",
           "hmr": false
         }
       }
@@ -56,14 +53,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/search-and-results/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/shared/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/search-and-results"],
+      "outputs": ["coverage/apps/shared"],
       "options": {
-        "jestConfig": "apps/search-and-results/jest.config.js",
+        "jestConfig": "apps/shared/jest.config.js",
         "passWithNoTests": true
       }
     }

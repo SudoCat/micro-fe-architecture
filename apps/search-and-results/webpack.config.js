@@ -13,7 +13,9 @@ module.exports = (config, context) => {
   };
   config.optimization.runtimeChunk = false;
 
-  config.devServer.port = 3001;
+  if (config.devServer) {
+    config.devServer.port = 3001;
+  }
 
   config.plugins.push(
     new ModuleFederationPlugin({

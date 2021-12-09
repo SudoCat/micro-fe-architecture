@@ -6,31 +6,40 @@ const webpackreact = require('@nrwl/react/plugins/webpack');
 module.exports = (config, context) => {
   config = webpackreact(config, context);
 
+  config.entry = './src/index';
+
   config.output = {
-    uniqueName: 'orders',
-    publicPath: 'http://localhost:3002/',
+    uniqueName: 'host',
+    publicPath: 'http://localhost:3000/',
     clean: true,
   };
+
   config.optimization.runtimeChunk = false;
 
   if (config.devServer) {
-    config.devServer.port = 3002;
+    config.devServer.port = 3000;
   }
 
   config.plugins.push(
     new ModuleFederationPlugin({
-      name: 'orders',
+      name: 'shared',
       filename: 'entry.js',
       remotes: {
-        shared: 'shared@http://localhost:3000/entry.js',
+        search: 'search@http://localhost:3001/entry.js',
+        orders: 'orders@http://localhost:3002/entry.js',
       },
       exposes: {
-        './routes': './src/routes.tsx',
+        './Wrapper': './src/Components/Wrapper',
+        './Router': './src/Components/Router',
       },
       shared: {
         ...deps,
-        react: { singleton: true, requiredVersion: deps.react },
-        'react-dom': { singleton: true, requiredVersion: deps['react-dom'] },
+        react: { singleton: true, eager: true, requiredVersion: deps.react },
+        'react-dom': {
+          singleton: true,
+          eager: true,
+          requiredVersion: deps['react-dom'],
+        },
       },
     })
   );

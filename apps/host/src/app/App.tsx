@@ -1,10 +1,5 @@
 import React, { Suspense, useState, useEffect } from 'react'
-import styled from 'styled-components';
-
-import { ReactComponent as Logo } from './logo.svg';
-import star from './star.svg';
-
-import { Routes, Route, Link, useRoutes, RouteObject } from 'react-router-dom';
+import { Link, useRoutes, RouteObject } from 'react-router-dom';
 
 const Button = React.lazy(() => import('search/Button'));
 
