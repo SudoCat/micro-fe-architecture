@@ -3,13 +3,11 @@
   "projects": {
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
-    "asdl": "libs/asdl",
     "host": "apps/host",
     "host-e2e": "apps/host-e2e",
     "orders": "apps/orders",
     "orders-e2e": "apps/orders-e2e",
     "search-and-results": "apps/search-and-results",
-    "search-and-results-e2e": "apps/search-and-results-e2e",
-    "ui-test": "libs/ui/test"
+    "search-and-results-e2e": "apps/search-and-results-e2e"
   }
 }
