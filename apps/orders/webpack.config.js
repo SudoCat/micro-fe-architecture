@@ -21,12 +21,16 @@ module.exports = (config, context) => {
       filename: 'entry.js',
       remotes: {},
       exposes: {
-        './routes': './src/routes.tsx',
+        './routes': './src/routes/index.tsx',
       },
       shared: {
         ...deps,
         react: { singleton: true, requiredVersion: deps.react },
         'react-dom': { singleton: true, requiredVersion: deps['react-dom'] },
+        '@reward-platform/example2': {
+          requiredVersion: require('../../libs/shared/ui/example2/package.json')
+            .version,
+        },
       },
     })
   );

@@ -16,8 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@reward-platform/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@reward-platform/asdl": ["libs/asdl/src/index.ts"],
-      "@reward-platform/ui/test": ["libs/ui/test/src/index.ts"]
+      "@reward-platform/example": ["libs/shared/ui/example2/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

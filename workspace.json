@@ -8,6 +8,7 @@
     "orders": "apps/orders",
     "orders-e2e": "apps/orders-e2e",
     "search-and-results": "apps/search-and-results",
-    "search-and-results-e2e": "apps/search-and-results-e2e"
+    "search-and-results-e2e": "apps/search-and-results-e2e",
+    "shared-ui-example2": "libs/shared/ui/example2"
   }
 }

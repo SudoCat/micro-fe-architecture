@@ -28,6 +28,10 @@ module.exports = (config, context) => {
         ...deps,
         react: { singleton: true, requiredVersion: deps.react },
         'react-dom': { singleton: true, requiredVersion: deps['react-dom'] },
+        '@reward-platform/example2': {
+          requiredVersion: require('../../libs/shared/ui/example2/package.json')
+            .version,
+        },
       },
     })
   );
