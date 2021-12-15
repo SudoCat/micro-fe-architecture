@@ -15,7 +15,9 @@ module.exports = (config, context) => {
   // config.output.publicPath = 'http://localhost:3000/';
   config.optimization.runtimeChunk = false;
 
-  config.devServer.port = 3000;
+  if (config.devServer) {
+    config.devServer.port = 3000;
+  }
 
   config.plugins.push(
     new ModuleFederationPlugin({

@@ -22,9 +22,8 @@ interface IRouterProps {
 }
 
 export default function Router({ hostApp, defaultRoutes }: IRouterProps) {
-  const [routes, setRoutes] = useState<RouteObject[]>([...defaultRoutes, { path: '/', element: <div>Loading...</div> }]);
+  const [routes, setRoutes] = useState<RouteObject[]>([...defaultRoutes, { path: '/*', element: <div>Loading...</div> }]);
   const Page = useRoutes(routes);
-  console.log(routes);
 
   useEffect(() => {
     async function loadRoutes() {
